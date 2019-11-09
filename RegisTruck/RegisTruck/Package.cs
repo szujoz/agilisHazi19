@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RegisTruck
 {
-    enum PackageType
+    public enum PackageType
     {
         Invalid = 0,
         Normal,
@@ -15,13 +15,13 @@ namespace RegisTruck
         Priority
     }
 
-    class Package
+    public class Package
     {
         public int Id { get; set; }
 
         public int DestinationStationId { get; set; }
 
-        public int Weight { get; set; }
+        public double Weight { get; set; }
 
         public String Deadline { get; set; }
 
@@ -38,6 +38,21 @@ namespace RegisTruck
             Deadline = "2000.01.01";
             Type = PackageType.Invalid;
             Description = "";
+        }
+
+        public Package(int         id,
+                       int         dst,
+                       double      weight,
+                       String      deadline,
+                       PackageType type,
+                       String      desc)
+        {
+            Id = id;
+            DestinationStationId = dst;
+            Weight = weight;
+            Deadline = deadline;
+            Type = type;
+            Description = desc;
         }
     }
 }
