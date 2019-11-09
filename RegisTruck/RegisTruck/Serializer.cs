@@ -19,7 +19,13 @@ namespace RegisTruck
 
         public string ToJson(object Obj)
         {
-            string jsonString = JsonSerializer.Serialize(Obj);
+            string jsonString;
+            var options = new JsonSerializerOptions()
+            {
+                WriteIndented = true,
+            };
+
+            jsonString = JsonSerializer.Serialize(Obj, options);
 
             return jsonString;
         }

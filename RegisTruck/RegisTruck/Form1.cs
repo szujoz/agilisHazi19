@@ -28,15 +28,17 @@ namespace RegisTruck
                                        "Ez kell az ingyen 2 kredithez");
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_ReadQr_Click(object sender, EventArgs e)
         {
             string  json;
             Package package;
 
             json = Serializer.ToJson(DummyPackage);
+            // Get json from QR reader API
             package = Serializer.PackageFromJson(json);
 
             DisplayPackage(package);
+            tBox_JsonOutput.Text = json.ToString();
         }
 
         private void DisplayPackage(Package package)
@@ -47,6 +49,11 @@ namespace RegisTruck
             tBox_PackageDeadline.Text    = package.Deadline.ToString();
             tBox_PackageType.Text        = Enum.GetName(typeof(PackageType), package.Type).ToString();
             tBox_PackageDescription.Text = package.Description.ToString();
+        }
+
+        private void btn_GenerateQr_Click(object sender, EventArgs e)
+        {
+            //TODO send string to QR generator API
         }
     }
 }
