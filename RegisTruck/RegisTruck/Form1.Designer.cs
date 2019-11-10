@@ -57,6 +57,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tBox_PackageDeadline = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.split_Main)).BeginInit();
@@ -68,6 +70,8 @@
             this.group_JsonOutput.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_LoadedQr)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -79,20 +83,18 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(937, 411);
+            this.tabControl1.Size = new System.Drawing.Size(926, 411);
             this.tabControl1.TabIndex = 21;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Controls.Add(this.group_JsonOutput);
-            this.tabPage2.Controls.Add(this.btn_LoadQrFromFile);
-            this.tabPage2.Controls.Add(this.pic_LoadedQr);
-            this.tabPage2.Controls.Add(this.btn_ReadQr);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(929, 385);
+            this.tabPage2.Size = new System.Drawing.Size(918, 385);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "QR Reader";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -118,19 +120,18 @@
             // split_Main.Panel1
             // 
             this.split_Main.Panel1.Controls.Add(this.tabControl1);
-            this.split_Main.Size = new System.Drawing.Size(937, 450);
+            this.split_Main.Size = new System.Drawing.Size(926, 450);
             this.split_Main.SplitterDistance = 411;
             this.split_Main.TabIndex = 22;
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.btn_SaveQr);
-            this.tabPage3.Controls.Add(this.pic_QrGenerated);
+            this.tabPage3.Controls.Add(this.groupBox3);
             this.tabPage3.Controls.Add(this.groupBox2);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(929, 385);
+            this.tabPage3.Size = new System.Drawing.Size(918, 385);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "QR Generator";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -168,7 +169,7 @@
             // 
             // btn_SaveQr
             // 
-            this.btn_SaveQr.Location = new System.Drawing.Point(678, 295);
+            this.btn_SaveQr.Location = new System.Drawing.Point(105, 284);
             this.btn_SaveQr.Name = "btn_SaveQr";
             this.btn_SaveQr.Size = new System.Drawing.Size(75, 23);
             this.btn_SaveQr.TabIndex = 27;
@@ -181,7 +182,7 @@
             this.pic_QrGenerated.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pic_QrGenerated.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pic_QrGenerated.Image = ((System.Drawing.Image)(resources.GetObject("pic_QrGenerated.Image")));
-            this.pic_QrGenerated.Location = new System.Drawing.Point(615, 72);
+            this.pic_QrGenerated.Location = new System.Drawing.Point(42, 61);
             this.pic_QrGenerated.Name = "pic_QrGenerated";
             this.pic_QrGenerated.Size = new System.Drawing.Size(200, 200);
             this.pic_QrGenerated.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -208,7 +209,7 @@
             // 
             // btn_LoadQrFromFile
             // 
-            this.btn_LoadQrFromFile.Location = new System.Drawing.Point(32, 302);
+            this.btn_LoadQrFromFile.Location = new System.Drawing.Point(16, 282);
             this.btn_LoadQrFromFile.Name = "btn_LoadQrFromFile";
             this.btn_LoadQrFromFile.Size = new System.Drawing.Size(75, 55);
             this.btn_LoadQrFromFile.TabIndex = 27;
@@ -220,7 +221,8 @@
             // 
             this.pic_LoadedQr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pic_LoadedQr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pic_LoadedQr.Location = new System.Drawing.Point(32, 54);
+            this.pic_LoadedQr.Image = ((System.Drawing.Image)(resources.GetObject("pic_LoadedQr.Image")));
+            this.pic_LoadedQr.Location = new System.Drawing.Point(16, 34);
             this.pic_LoadedQr.Name = "pic_LoadedQr";
             this.pic_LoadedQr.Size = new System.Drawing.Size(200, 200);
             this.pic_LoadedQr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -229,7 +231,7 @@
             // 
             // btn_ReadQr
             // 
-            this.btn_ReadQr.Location = new System.Drawing.Point(157, 302);
+            this.btn_ReadQr.Location = new System.Drawing.Point(141, 282);
             this.btn_ReadQr.Name = "btn_ReadQr";
             this.btn_ReadQr.Size = new System.Drawing.Size(75, 55);
             this.btn_ReadQr.TabIndex = 25;
@@ -355,11 +357,34 @@
             this.tBox_PackageDeadline.Size = new System.Drawing.Size(152, 20);
             this.tBox_PackageDeadline.TabIndex = 4;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.pic_QrGenerated);
+            this.groupBox3.Controls.Add(this.btn_SaveQr);
+            this.groupBox3.Location = new System.Drawing.Point(580, 20);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(265, 346);
+            this.groupBox3.TabIndex = 28;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "QR code";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.pic_LoadedQr);
+            this.groupBox4.Controls.Add(this.btn_LoadQrFromFile);
+            this.groupBox4.Controls.Add(this.btn_ReadQr);
+            this.groupBox4.Location = new System.Drawing.Point(8, 15);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(248, 354);
+            this.groupBox4.TabIndex = 13;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "QR code";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(937, 450);
+            this.ClientSize = new System.Drawing.Size(926, 450);
             this.Controls.Add(this.split_Main);
             this.Name = "Form1";
             this.Text = "RegisTruck";
@@ -377,6 +402,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_LoadedQr)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -410,6 +437,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox tBox_JsonInput;
         private System.Windows.Forms.Button btn_GenerateQr;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
 
