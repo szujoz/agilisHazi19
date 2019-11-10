@@ -19,24 +19,6 @@ namespace RegisTruck
             InitializeComponent();
             Serializer = new Serializer();
             QrParser = new QrParser();
-
-            DummyPackage = new Package(2,
-                                       1000,
-                                       2.5,
-                                       "2019.12.01",
-                                       PackageType.Normal,
-                                       "Ez kell az ingyen 2 kredithez");
-
-
-            var currDirectory = Directory.GetCurrentDirectory();
-            TestPic = Directory.GetParent(currDirectory).ToString();
-            TestPic = Directory.GetParent(TestPic).ToString();
-            TestPic = Directory.GetParent(TestPic).ToString();
-            TestPic = Directory.GetParent(TestPic).ToString();
-            TestPic += "\\QRs\\qrcode.png";
-
-            // load a bitmap
-            QrCode = (Bitmap)Image.FromFile(TestPic);
         }
 
         private void DisplayPackage(Package package)
