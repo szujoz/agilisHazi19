@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace RegisTruck
@@ -13,12 +8,17 @@ namespace RegisTruck
     public partial class Form1 : Form
     {
         public Serializer Serializer { get; set; }
+        public QrParser   QrParser   { get; set; }
+        public Bitmap     QrCode     { get; set; }
+
         public Package DummyPackage { get; set; }
+        public String TestPic { get; set; }
 
         public Form1()
         {
             InitializeComponent();
             Serializer = new Serializer();
+            QrParser = new QrParser();
 
             DummyPackage = new Package(2,
                                        1000,
@@ -26,6 +26,17 @@ namespace RegisTruck
                                        "2019.12.01",
                                        PackageType.Normal,
                                        "Ez kell az ingyen 2 kredithez");
+
+
+            var currDirectory = Directory.GetCurrentDirectory();
+            TestPic = Directory.GetParent(currDirectory).ToString();
+            TestPic = Directory.GetParent(TestPic).ToString();
+            TestPic = Directory.GetParent(TestPic).ToString();
+            TestPic = Directory.GetParent(TestPic).ToString();
+            TestPic += "\\QRs\\qrcode.png";
+
+            // load a bitmap
+            QrCode = (Bitmap)Image.FromFile(TestPic);
         }
 
         private void btn_ReadQr_Click(object sender, EventArgs e)
@@ -33,8 +44,11 @@ namespace RegisTruck
             string  json;
             Package package;
 
-            json = Serializer.ToJson(DummyPackage);
             // Get json from QR reader API
+            //json = QrParser.DecodeQr(QrCode);
+            json = QrParser.DecodeQr((Bitmap)pictureBox1.Image);
+
+            //json = Serializer.ToJson(DummyPackage);
             package = Serializer.PackageFromJson(json);
 
             DisplayPackage(package);
@@ -53,7 +67,7 @@ namespace RegisTruck
 
         private void btn_GenerateQr_Click(object sender, EventArgs e)
         {
-            //TODO send string to QR generator API
+            pictureBox1.Image = QrParser.GenerateQr(tBox_JsonInput.Text);
         }
     }
 }

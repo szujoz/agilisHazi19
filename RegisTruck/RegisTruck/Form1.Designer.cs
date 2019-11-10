@@ -226,8 +226,8 @@
             this.tBox_JsonInput.Name = "tBox_JsonInput";
             this.tBox_JsonInput.Size = new System.Drawing.Size(364, 144);
             this.tBox_JsonInput.TabIndex = 19;
-            this.tBox_JsonInput.Text = "{\r\n  \"Id\": 2,\r\n  \"DestinationStationId\": 1000,\r\n  \"Weight\": 2.5,\r\n  \"Deadline\": \"" +
-    "2019.12.01\",\r\n  \"Type\": 1,\r\n  \"Description\": \"Ez kell az ingyen 2 kredithez\"\r\n}";
+            this.tBox_JsonInput.Text = "{\r\n  \"Id\": 50,\r\n  \"DestinationStationId\": 130,\r\n  \"Weight\": 10,\r\n  \"Deadline\": \"2" +
+    "019.11.11\",\r\n  \"Type\": 2,\r\n  \"Description\": \"Valami leírás\"\r\n}";
             // 
             // JsonDataOutput
             // 
@@ -252,7 +252,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
-            this.Text = "te";
+            this.Text = "RegisTruck";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
