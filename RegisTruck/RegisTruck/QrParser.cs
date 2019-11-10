@@ -20,6 +20,8 @@ namespace RegisTruck
             QrWriter = new BarcodeWriter();
 
             QrWriter.Format = BarcodeFormat.QR_CODE;
+            QrWriter.Options.Width  = 600;
+            QrWriter.Options.Height = 600;
         }
 
         public String DecodeQr(Bitmap qrCode)
