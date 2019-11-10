@@ -89,6 +89,9 @@
             this.label20 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btn_ToPayload = new System.Windows.Forms.Button();
+            this.btn_PlanRoute = new System.Windows.Forms.Button();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -119,6 +122,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -157,7 +161,7 @@
             this.groupBox4.Controls.Add(this.btn_ReadQr);
             this.groupBox4.Location = new System.Drawing.Point(8, 15);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(248, 354);
+            this.groupBox4.Size = new System.Drawing.Size(248, 370);
             this.groupBox4.TabIndex = 13;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "QR code";
@@ -167,7 +171,7 @@
             this.pic_LoadedQr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pic_LoadedQr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pic_LoadedQr.Image = ((System.Drawing.Image)(resources.GetObject("pic_LoadedQr.Image")));
-            this.pic_LoadedQr.Location = new System.Drawing.Point(16, 34);
+            this.pic_LoadedQr.Location = new System.Drawing.Point(22, 34);
             this.pic_LoadedQr.Name = "pic_LoadedQr";
             this.pic_LoadedQr.Size = new System.Drawing.Size(200, 200);
             this.pic_LoadedQr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -176,7 +180,7 @@
             // 
             // btn_LoadQrFromFile
             // 
-            this.btn_LoadQrFromFile.Location = new System.Drawing.Point(16, 282);
+            this.btn_LoadQrFromFile.Location = new System.Drawing.Point(22, 282);
             this.btn_LoadQrFromFile.Name = "btn_LoadQrFromFile";
             this.btn_LoadQrFromFile.Size = new System.Drawing.Size(75, 55);
             this.btn_LoadQrFromFile.TabIndex = 27;
@@ -186,7 +190,7 @@
             // 
             // btn_ReadQr
             // 
-            this.btn_ReadQr.Location = new System.Drawing.Point(141, 282);
+            this.btn_ReadQr.Location = new System.Drawing.Point(147, 282);
             this.btn_ReadQr.Name = "btn_ReadQr";
             this.btn_ReadQr.Size = new System.Drawing.Size(75, 55);
             this.btn_ReadQr.TabIndex = 25;
@@ -199,7 +203,7 @@
             this.group_JsonOutput.Controls.Add(this.tBox_JsonOutput);
             this.group_JsonOutput.Location = new System.Drawing.Point(525, 15);
             this.group_JsonOutput.Name = "group_JsonOutput";
-            this.group_JsonOutput.Size = new System.Drawing.Size(384, 354);
+            this.group_JsonOutput.Size = new System.Drawing.Size(384, 370);
             this.group_JsonOutput.TabIndex = 28;
             this.group_JsonOutput.TabStop = false;
             this.group_JsonOutput.Text = "JSON Output";
@@ -209,11 +213,12 @@
             this.tBox_JsonOutput.Location = new System.Drawing.Point(14, 31);
             this.tBox_JsonOutput.Multiline = true;
             this.tBox_JsonOutput.Name = "tBox_JsonOutput";
-            this.tBox_JsonOutput.Size = new System.Drawing.Size(364, 311);
+            this.tBox_JsonOutput.Size = new System.Drawing.Size(364, 323);
             this.tBox_JsonOutput.TabIndex = 16;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_ToPayload);
             this.groupBox1.Controls.Add(this.tBox_PackageDestination);
             this.groupBox1.Controls.Add(this.tBox_PackageDescription);
             this.groupBox1.Controls.Add(this.label6);
@@ -228,21 +233,21 @@
             this.groupBox1.Controls.Add(this.tBox_PackageDeadline);
             this.groupBox1.Location = new System.Drawing.Point(262, 15);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(257, 354);
+            this.groupBox1.Size = new System.Drawing.Size(257, 370);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Package Data";
             // 
             // tBox_PackageDestination
             // 
-            this.tBox_PackageDestination.Location = new System.Drawing.Point(87, 76);
+            this.tBox_PackageDestination.Location = new System.Drawing.Point(88, 67);
             this.tBox_PackageDestination.Name = "tBox_PackageDestination";
             this.tBox_PackageDestination.Size = new System.Drawing.Size(152, 20);
             this.tBox_PackageDestination.TabIndex = 2;
             // 
             // tBox_PackageDescription
             // 
-            this.tBox_PackageDescription.Location = new System.Drawing.Point(87, 243);
+            this.tBox_PackageDescription.Location = new System.Drawing.Point(88, 213);
             this.tBox_PackageDescription.Multiline = true;
             this.tBox_PackageDescription.Name = "tBox_PackageDescription";
             this.tBox_PackageDescription.Size = new System.Drawing.Size(152, 99);
@@ -251,7 +256,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 246);
+            this.label6.Location = new System.Drawing.Point(10, 216);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 13);
             this.label6.TabIndex = 12;
@@ -260,7 +265,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 79);
+            this.label2.Location = new System.Drawing.Point(10, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 7;
@@ -268,7 +273,7 @@
             // 
             // tBox_PackageId
             // 
-            this.tBox_PackageId.Location = new System.Drawing.Point(87, 36);
+            this.tBox_PackageId.Location = new System.Drawing.Point(88, 31);
             this.tBox_PackageId.Name = "tBox_PackageId";
             this.tBox_PackageId.Size = new System.Drawing.Size(152, 20);
             this.tBox_PackageId.TabIndex = 1;
@@ -276,7 +281,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 39);
+            this.label1.Location = new System.Drawing.Point(52, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(21, 13);
             this.label1.TabIndex = 6;
@@ -285,7 +290,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 119);
+            this.label3.Location = new System.Drawing.Point(29, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 8;
@@ -293,14 +298,14 @@
             // 
             // tBox_PackageWeight
             // 
-            this.tBox_PackageWeight.Location = new System.Drawing.Point(87, 116);
+            this.tBox_PackageWeight.Location = new System.Drawing.Point(88, 102);
             this.tBox_PackageWeight.Name = "tBox_PackageWeight";
             this.tBox_PackageWeight.Size = new System.Drawing.Size(152, 20);
             this.tBox_PackageWeight.TabIndex = 3;
             // 
             // tBox_PackageType
             // 
-            this.tBox_PackageType.Location = new System.Drawing.Point(87, 200);
+            this.tBox_PackageType.Location = new System.Drawing.Point(88, 173);
             this.tBox_PackageType.Name = "tBox_PackageType";
             this.tBox_PackageType.Size = new System.Drawing.Size(152, 20);
             this.tBox_PackageType.TabIndex = 5;
@@ -308,7 +313,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(38, 203);
+            this.label5.Location = new System.Drawing.Point(39, 176);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(34, 13);
             this.label5.TabIndex = 10;
@@ -317,7 +322,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 162);
+            this.label4.Location = new System.Drawing.Point(21, 141);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 9;
@@ -325,7 +330,7 @@
             // 
             // tBox_PackageDeadline
             // 
-            this.tBox_PackageDeadline.Location = new System.Drawing.Point(87, 159);
+            this.tBox_PackageDeadline.Location = new System.Drawing.Point(88, 138);
             this.tBox_PackageDeadline.Name = "tBox_PackageDeadline";
             this.tBox_PackageDeadline.Size = new System.Drawing.Size(152, 20);
             this.tBox_PackageDeadline.TabIndex = 4;
@@ -348,7 +353,7 @@
             this.groupBox3.Controls.Add(this.btn_SaveQr);
             this.groupBox3.Location = new System.Drawing.Point(580, 20);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(265, 346);
+            this.groupBox3.Size = new System.Drawing.Size(265, 365);
             this.groupBox3.TabIndex = 28;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "QR code";
@@ -367,7 +372,7 @@
             // 
             // btn_SaveQr
             // 
-            this.btn_SaveQr.Location = new System.Drawing.Point(105, 284);
+            this.btn_SaveQr.Location = new System.Drawing.Point(104, 284);
             this.btn_SaveQr.Name = "btn_SaveQr";
             this.btn_SaveQr.Size = new System.Drawing.Size(75, 23);
             this.btn_SaveQr.TabIndex = 27;
@@ -381,7 +386,7 @@
             this.groupBox2.Controls.Add(this.btn_GenerateQr);
             this.groupBox2.Location = new System.Drawing.Point(34, 20);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(399, 346);
+            this.groupBox2.Size = new System.Drawing.Size(399, 365);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "JSON Input:";
@@ -398,7 +403,7 @@
             // 
             // btn_GenerateQr
             // 
-            this.btn_GenerateQr.Location = new System.Drawing.Point(307, 285);
+            this.btn_GenerateQr.Location = new System.Drawing.Point(307, 284);
             this.btn_GenerateQr.Name = "btn_GenerateQr";
             this.btn_GenerateQr.Size = new System.Drawing.Size(75, 55);
             this.btn_GenerateQr.TabIndex = 18;
@@ -508,6 +513,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.btn_PlanRoute);
             this.groupBox6.Controls.Add(this.textBox4);
             this.groupBox6.Controls.Add(this.label20);
             this.groupBox6.Controls.Add(this.textBox3);
@@ -537,7 +543,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 47);
+            this.label11.Location = new System.Drawing.Point(8, 34);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(34, 13);
             this.label11.TabIndex = 0;
@@ -545,7 +551,7 @@
             // 
             // tBox_TruckType
             // 
-            this.tBox_TruckType.Location = new System.Drawing.Point(46, 44);
+            this.tBox_TruckType.Location = new System.Drawing.Point(48, 31);
             this.tBox_TruckType.Name = "tBox_TruckType";
             this.tBox_TruckType.Size = new System.Drawing.Size(175, 20);
             this.tBox_TruckType.TabIndex = 1;
@@ -553,7 +559,7 @@
             // 
             // tBox_TruckSerialNumber
             // 
-            this.tBox_TruckSerialNumber.Location = new System.Drawing.Point(126, 80);
+            this.tBox_TruckSerialNumber.Location = new System.Drawing.Point(128, 67);
             this.tBox_TruckSerialNumber.Name = "tBox_TruckSerialNumber";
             this.tBox_TruckSerialNumber.Size = new System.Drawing.Size(95, 20);
             this.tBox_TruckSerialNumber.TabIndex = 3;
@@ -562,7 +568,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(30, 83);
+            this.label12.Location = new System.Drawing.Point(32, 70);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 13);
             this.label12.TabIndex = 2;
@@ -570,7 +576,7 @@
             // 
             // tBox_TruckCapacity
             // 
-            this.tBox_TruckCapacity.Location = new System.Drawing.Point(126, 151);
+            this.tBox_TruckCapacity.Location = new System.Drawing.Point(128, 138);
             this.tBox_TruckCapacity.Name = "tBox_TruckCapacity";
             this.tBox_TruckCapacity.Size = new System.Drawing.Size(95, 20);
             this.tBox_TruckCapacity.TabIndex = 5;
@@ -579,7 +585,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(55, 154);
+            this.label13.Location = new System.Drawing.Point(57, 141);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(51, 13);
             this.label13.TabIndex = 4;
@@ -587,7 +593,7 @@
             // 
             // tBox_TruckOperator
             // 
-            this.tBox_TruckOperator.Location = new System.Drawing.Point(126, 222);
+            this.tBox_TruckOperator.Location = new System.Drawing.Point(128, 209);
             this.tBox_TruckOperator.Name = "tBox_TruckOperator";
             this.tBox_TruckOperator.Size = new System.Drawing.Size(95, 20);
             this.tBox_TruckOperator.TabIndex = 7;
@@ -596,7 +602,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(55, 225);
+            this.label14.Location = new System.Drawing.Point(57, 212);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(51, 13);
             this.label14.TabIndex = 6;
@@ -604,7 +610,7 @@
             // 
             // tBox_TruckRepairState
             // 
-            this.tBox_TruckRepairState.Location = new System.Drawing.Point(126, 257);
+            this.tBox_TruckRepairState.Location = new System.Drawing.Point(128, 244);
             this.tBox_TruckRepairState.Name = "tBox_TruckRepairState";
             this.tBox_TruckRepairState.Size = new System.Drawing.Size(95, 20);
             this.tBox_TruckRepairState.TabIndex = 9;
@@ -613,7 +619,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(37, 260);
+            this.label15.Location = new System.Drawing.Point(39, 247);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(69, 13);
             this.label15.TabIndex = 8;
@@ -630,7 +636,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(126, 292);
+            this.textBox1.Location = new System.Drawing.Point(128, 279);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(95, 20);
             this.textBox1.TabIndex = 11;
@@ -639,7 +645,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 295);
+            this.label17.Location = new System.Drawing.Point(8, 282);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(100, 13);
             this.label17.TabIndex = 10;
@@ -647,7 +653,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(126, 115);
+            this.textBox2.Location = new System.Drawing.Point(128, 102);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(95, 20);
             this.textBox2.TabIndex = 13;
@@ -656,7 +662,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(62, 118);
+            this.label18.Location = new System.Drawing.Point(64, 105);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(44, 13);
             this.label18.TabIndex = 12;
@@ -664,7 +670,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(126, 327);
+            this.textBox3.Location = new System.Drawing.Point(128, 314);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(95, 20);
             this.textBox3.TabIndex = 15;
@@ -673,7 +679,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(21, 330);
+            this.label19.Location = new System.Drawing.Point(23, 317);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(85, 13);
             this.label19.TabIndex = 14;
@@ -681,7 +687,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(126, 187);
+            this.textBox4.Location = new System.Drawing.Point(128, 174);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(95, 20);
             this.textBox4.TabIndex = 17;
@@ -690,7 +696,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(48, 190);
+            this.label20.Location = new System.Drawing.Point(50, 177);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(58, 13);
             this.label20.TabIndex = 16;
@@ -722,6 +728,34 @@
             this.splitContainer1.Size = new System.Drawing.Size(912, 385);
             this.splitContainer1.SplitterDistance = 679;
             this.splitContainer1.TabIndex = 3;
+            // 
+            // btn_ToPayload
+            // 
+            this.btn_ToPayload.Location = new System.Drawing.Point(165, 331);
+            this.btn_ToPayload.Name = "btn_ToPayload";
+            this.btn_ToPayload.Size = new System.Drawing.Size(75, 23);
+            this.btn_ToPayload.TabIndex = 13;
+            this.btn_ToPayload.Text = "To Payload";
+            this.btn_ToPayload.UseVisualStyleBackColor = true;
+            // 
+            // btn_PlanRoute
+            // 
+            this.btn_PlanRoute.Location = new System.Drawing.Point(90, 353);
+            this.btn_PlanRoute.Name = "btn_PlanRoute";
+            this.btn_PlanRoute.Size = new System.Drawing.Size(75, 23);
+            this.btn_PlanRoute.TabIndex = 18;
+            this.btn_PlanRoute.Text = "Plan Route";
+            this.btn_PlanRoute.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(918, 391);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Settings";
+            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -823,6 +857,9 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Button btn_ToPayload;
+        private System.Windows.Forms.Button btn_PlanRoute;
+        private System.Windows.Forms.TabPage tabPage5;
     }
 }
 

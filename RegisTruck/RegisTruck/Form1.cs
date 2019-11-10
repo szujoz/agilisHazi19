@@ -10,15 +10,15 @@ namespace RegisTruck
         public Serializer Serializer { get; set; }
         public QrParser   QrParser   { get; set; }
         public Bitmap     QrCode     { get; set; }
-
-        public Package DummyPackage { get; set; }
-        public String TestPic { get; set; }
+        public Truck      Truck      { get; set; }
+        public Settings  Settings { get; set; }
 
         public Form1()
         {
             InitializeComponent();
             Serializer = new Serializer();
-            QrParser = new QrParser();
+            QrParser   = new QrParser();
+            Truck      = new Truck();
         }
 
         private void DisplayPackage(Package package)
