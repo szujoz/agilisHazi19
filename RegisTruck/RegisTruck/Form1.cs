@@ -2,16 +2,18 @@
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace RegisTruck
 {
     public partial class Form1 : Form
     {
-        public Serializer Serializer { get; set; }
-        public QrParser   QrParser   { get; set; }
-        public Bitmap     QrCode     { get; set; }
-        public Truck      Truck      { get; set; }
-        public Settings  Settings { get; set; }
+        public Serializer Serializer   { get; set; }
+        public QrParser   QrParser     { get; set; }
+        public Bitmap     QrCode       { get; set; }
+        public Truck      Truck        { get; set; }
+        public Settings  Settings      { get; set; }
+        public Package   ActualPackage { get; set; }
 
         public Form1()
         {
@@ -19,6 +21,37 @@ namespace RegisTruck
             Serializer = new Serializer();
             QrParser   = new QrParser();
             Truck      = new Truck();
+
+            Package dummyPackage1 = new Package(0, 1, 10, "1996.01.20", PackageType.Normal, "Leírááááááááás");
+            Package dummyPackage2 = new Package(1, 3, 54, "2006.08.12", PackageType.Fragile, "Alle mögen when das Wetter ideal ist");
+
+            List<Package> dummyPayload = new List<Package>();
+            dummyPayload.Add(dummyPackage1);
+            dummyPayload.Add(dummyPackage2);
+
+            Truck.LoadInfo("Jungheinrich - EFG 316",
+                           "SN-222-11-RT5",
+                           2600,
+                           1200,
+                           1.5,
+                           "Opera Thor",
+                           75,
+                           dummyPayload);
+
+            DisplayTruck(Truck);
+        }
+
+        private void DisplayTruck(Truck truck)
+        {
+            tBox_TruckType.Text                 = Truck.Type.ToString();
+            tBox_TruckSerialNumber.Text         = Truck.SerialNumber.ToString();
+            tBox_TruckWeight.Text               = Truck.Weight.ToString() + " kg";
+            tBox_TruckCapacity.Text             = Truck.Capacity.ToString() + " kg"; 
+            tBox_TruckLiftHeight.Text           = Truck.LiftHeight.ToString() + " m";
+            tBox_TruckOperator.Text             = Truck.Operator.ToString();
+            tBox_TruckRepairState.Text          = Truck.RepairState.ToString() + " %";
+            tBox_TruckOnboardPackagesCount.Text = Truck.Payload.Count.ToString();
+            tBox_TruckPayloadWeight.Text        = Truck.GetPayloadWeight().ToString() + " kg";
         }
 
         private void DisplayPackage(Package package)
@@ -98,17 +131,62 @@ namespace RegisTruck
         private void btn_ReadQr_Click(object sender, EventArgs e)
         {
             string json;
-            Package package;
 
             // Get json from QR reader API
             //json = QrParser.DecodeQr(QrCode);
             json = QrParser.DecodeQr((Bitmap)pic_LoadedQr.Image);
 
             //json = Serializer.ToJson(DummyPackage);
-            package = Serializer.PackageFromJson(json);
+            ActualPackage = Serializer.PackageFromJson(json);
 
-            DisplayPackage(package);
+            DisplayPackage(ActualPackage);
             tBox_JsonOutput.Text = json.ToString();
+        }
+
+        private void btn_ToPayload_Click(object sender, EventArgs e)
+        {
+            Truck.Payload.Add(ActualPackage);
+
+            tBox_PayloadList.Text += Serializer.ToJson(ActualPackage) + "\r\n";
+            tBox_TruckOnboardPackagesCount.Text = Truck.Payload.Count.ToString();
+            tBox_TruckPayloadWeight.Text = Truck.GetPayloadWeight().ToString() + " kg";
+        }
+
+        private void btn_PayloadEmpty_Click(object sender, EventArgs e)
+        {
+            Truck.Payload.Clear();
+
+            tBox_PayloadList.Text = "";
+            tBox_TruckOnboardPackagesCount.Text = Truck.Payload.Count.ToString();
+            tBox_TruckPayloadWeight.Text = Truck.GetPayloadWeight().ToString() + " kg";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int selectedId = Convert.ToInt32(tBox_PayloadSelectedPackageID.Text.ToString());
+            string payloadList = "";
+            Package selectedPackage = null;
+
+            foreach (var package in Truck.Payload)
+            {
+                if (package.Id == selectedId)
+                {
+                    selectedPackage = package;
+                }
+                else
+                {
+                    payloadList += Serializer.ToJson(package);
+                }                
+            }
+
+            if (selectedPackage != null)
+            {
+                Truck.Payload.Remove(selectedPackage);
+            }
+
+            tBox_PayloadList.Text = payloadList;
+            tBox_TruckOnboardPackagesCount.Text = Truck.Payload.Count.ToString();
+            tBox_TruckPayloadWeight.Text = Truck.GetPayloadWeight().ToString() + " kg";
         }
     }
 }
